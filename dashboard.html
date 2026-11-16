@@ -51,6 +51,11 @@
             Courses
         </a>
 
+        <a href="#categories" class="side-link" data-page="categories">
+            <i class="fa-solid fa-layer-group"></i>
+            Categories
+        </a>
+
         <a href="#reviews" class="side-link" data-page="reviews">
             <i class="fa-solid fa-star"></i>
             Reviews
@@ -59,6 +64,11 @@
         <a href="#enrollments" class="side-link" data-page="enrollments">
             <i class="fa-solid fa-clipboard-list"></i>
             Enrollments
+        </a>
+
+        <a href="#contacts" class="side-link" data-page="contacts">
+            <i class="fa-solid fa-envelope"></i>
+            Contact Messages
         </a>
 
     </nav>
@@ -406,6 +416,27 @@
 
 
    
+<!-- CATEGORY MANAGEMENT -->
+<section class="page-section" id="categories">
+    <div class="content-card">
+        <div class="d-flex justify-content-between align-items-center flex-wrap gap-3 mb-4">
+            <div>
+                <h4 class="section-title mb-1">Category Management</h4>
+                <small class="text-secondary">Create and manage course categories</small>
+            </div>
+            <button class="btn-primary-custom" type="button" onclick="openCategoryModal()">
+                <i class="fa-solid fa-plus me-2"></i> Add Category
+            </button>
+        </div>
+        <div class="table-responsive">
+            <table class="table table-hover align-middle">
+                <thead><tr><th>CATEGORY</th><th>COURSES</th><th>ACTIONS</th></tr></thead>
+                <tbody id="categoryRows"></tbody>
+            </table>
+        </div>
+    </div>
+</section>
+
 <!-- REVIEW MANAGEMENT -->
 
 <section class="page-section" id="reviews">
@@ -497,8 +528,8 @@
 
                 <thead>
                     <tr>
-                        <th>STUDENT ID</th>
-                        <th>STUDENT NAME</th>
+                        <th>NAME</th>
+                        <th>PHONE</th>
                         <th>COURSE</th>
                         <th>ENROLLMENT DATE</th>
                         <th>STATUS</th>
@@ -520,6 +551,31 @@
 
 </section>
 
+
+
+
+
+
+</section>
+
+<!-- CONTACT MESSAGES -->
+<section class="page-section" id="contacts">
+    <div class="content-card">
+        <div class="d-flex justify-content-between align-items-center flex-wrap gap-3 mb-4">
+            <div>
+                <h4 class="section-title mb-1">Contact Messages</h4>
+                <small class="text-secondary">Messages submitted through the Contact Us form</small>
+            </div>
+            <span class="badge bg-info-subtle text-info px-3 py-2"><i class="fa-solid fa-envelope me-1"></i> Inbox</span>
+        </div>
+        <div class="table-responsive">
+            <table class="table table-hover align-middle">
+                <thead><tr><th>NAME</th><th>EMAIL</th><th>MESSAGE</th><th>DATE</th><th>ACTIONS</th></tr></thead>
+                <tbody id="contactRows"></tbody>
+            </table>
+        </div>
+    </div>
+</section>
 
 
 
@@ -802,6 +858,29 @@
 
 </div>
 
+<!-- CATEGORY MODAL -->
+<div class="modal fade" id="categoryModal" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content border-0 rounded-4">
+            <div class="modal-header">
+                <h5 class="modal-title fw-bold" id="categoryModalTitle">Add New Category</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <form id="categoryForm">
+                <div class="modal-body">
+                    <input type="hidden" id="editCategoryId">
+                    <label class="form-label" for="categoryName">Category Name</label>
+                    <input type="text" class="form-control" id="categoryName" placeholder="e.g. Programming" required maxlength="60">
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-light" data-bs-dismiss="modal">Cancel</button>
+                    <button type="submit" class="btn-primary-custom">Save Category</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
 <!-- COURSE MODAl -->
 
 <div class="modal fade" id="courseModal" tabindex="-1">
@@ -889,6 +968,14 @@
 
                     </div>
 
+
+                    <!-- COURSE CATEGORY -->
+                    <div class="mb-3">
+                        <label class="form-label">Category</label>
+                        <select class="form-select" id="courseCategory" required>
+                            <option value="">Select Category</option>
+                        </select>
+                    </div>
 
                     <!-- COURSE FEE -->
                     <div class="mb-3">
@@ -1024,6 +1111,15 @@ const defaultStudents = [
 ];
 
 
+const defaultCategories = [
+    { id: "CAT001", name: "Networking" },
+    { id: "CAT002", name: "Programming" },
+    { id: "CAT003", name: "Hardware" },
+    { id: "CAT004", name: "General" },
+    { id: "CAT005", name: "Web Development" }
+];
+
+
 const defaultCourses = [
 
     {
@@ -1108,10 +1204,29 @@ function loadData(key, defaultData) {
 
 let students = loadData("mit_students", defaultStudents);
 
+let categories = loadData("mit_categories", defaultCategories);
+
 let courses = loadData("mit_courses", defaultCourses);
+
+// Keep existing saved courses compatible with the new category field.
+courses.forEach(course => {
+    if (!course.categoryId) {
+        const legacyCategory = course.name === "Web Development"
+            ? "CAT005"
+            : course.name === "Networking"
+                ? "CAT001"
+                : "CAT004";
+        course.categoryId = legacyCategory;
+    }
+});
 
 let enrollments = loadData("mit_enrollments", defaultEnrollments);
 
+let contactMessages = loadData("mit_contact_messages", []);
+
+
+// Persist category defaults and category IDs for existing course records.
+saveData();
 
 // Make sure older student records have a phone property.
 
@@ -1128,9 +1243,13 @@ function saveData() {
 
     localStorage.setItem("mit_students", JSON.stringify(students));
 
+    localStorage.setItem("mit_categories", JSON.stringify(categories));
+
     localStorage.setItem("mit_courses", JSON.stringify(courses));
 
     localStorage.setItem("mit_enrollments", JSON.stringify(enrollments));
+
+    localStorage.setItem("mit_contact_messages", JSON.stringify(contactMessages));
 
 }
 
@@ -1146,6 +1265,10 @@ const studentModal = new bootstrap.Modal(
 
 const courseModal = new bootstrap.Modal(
     document.getElementById("courseModal")
+);
+
+const categoryModal = new bootstrap.Modal(
+    document.getElementById("categoryModal")
 );
 
 
@@ -1189,9 +1312,13 @@ function showPage(page) {
 
         courses: "Course Management",
 
+        categories: "Category Management",
+
         reviews: "Review Management",
 
-        enrollments: "Enrollment Management"
+        enrollments: "Enrollment Management",
+
+        contacts: "Contact Messages"
 
     };
 
@@ -1712,6 +1839,100 @@ function deleteStudent(index) {
 
 
 // =====================================
+// CATEGORY MANAGEMENT
+// =====================================
+
+function renderCategories() {
+    const rows = document.getElementById("categoryRows");
+    if (!rows) return;
+    rows.innerHTML = "";
+
+    if (categories.length === 0) {
+        rows.innerHTML = `<tr><td colspan="3" class="text-center text-secondary py-4">No categories yet. Add your first category.</td></tr>`;
+        return;
+    }
+
+    categories.forEach(category => {
+        const courseCount = courses.filter(course => course.categoryId === category.id).length;
+        rows.innerHTML += `
+            <tr>
+                <td class="fw-semibold">${escapeHTML(category.name)}</td>
+                <td><span class="badge bg-info-subtle text-info">${courseCount} course(s)</span></td>
+                <td class="text-nowrap">
+                    <button class="btn btn-sm btn-outline-primary me-1" type="button" onclick="editCategory('${category.id}')" title="Edit"><i class="fa-solid fa-pen"></i></button>
+                    <button class="btn btn-sm btn-outline-danger" type="button" onclick="deleteCategory('${category.id}')" title="Delete"><i class="fa-solid fa-trash"></i></button>
+                </td>
+            </tr>`;
+    });
+}
+
+function renderCategoryOptions(selectedId = "") {
+    const select = document.getElementById("courseCategory");
+    if (!select) return;
+    select.innerHTML = `<option value="">Select Category</option>`;
+    categories.forEach(category => {
+        select.innerHTML += `<option value="${escapeHTML(category.id)}">${escapeHTML(category.name)}</option>`;
+    });
+    select.value = selectedId;
+}
+
+function openCategoryModal() {
+    document.getElementById("categoryForm").reset();
+    document.getElementById("editCategoryId").value = "";
+    document.getElementById("categoryModalTitle").textContent = "Add New Category";
+    categoryModal.show();
+}
+
+function editCategory(id) {
+    const category = categories.find(item => item.id === id);
+    if (!category) return;
+    document.getElementById("editCategoryId").value = category.id;
+    document.getElementById("categoryName").value = category.name;
+    document.getElementById("categoryModalTitle").textContent = "Edit Category";
+    categoryModal.show();
+}
+
+document.getElementById("categoryForm").addEventListener("submit", function(e) {
+    e.preventDefault();
+    const id = document.getElementById("editCategoryId").value;
+    const name = document.getElementById("categoryName").value.trim();
+    if (!name) return;
+    const duplicate = categories.some(item => item.name.toLowerCase() === name.toLowerCase() && item.id !== id);
+    if (duplicate) {
+        alert("This category already exists!");
+        return;
+    }
+    if (id) {
+        const category = categories.find(item => item.id === id);
+        if (!category) return;
+        category.name = name;
+    } else {
+        categories.push({ id: "CAT" + Date.now(), name });
+    }
+    saveData();
+    renderAll();
+    renderCategoryOptions(document.getElementById("courseCategory").value);
+    categoryModal.hide();
+    this.reset();
+});
+
+function deleteCategory(id) {
+    const category = categories.find(item => item.id === id);
+    if (!category) return;
+    const linkedCourses = courses.filter(course => course.categoryId === id);
+    if (linkedCourses.length) {
+        alert(`Cannot delete "${category.name}" because ${linkedCourses.length} course(s) are using it. Move or delete those courses first.`);
+        return;
+    }
+    if (!confirm(`Delete category "${category.name}"?`)) return;
+    categories = categories.filter(item => item.id !== id);
+    saveData();
+    renderAll();
+    renderCategoryOptions();
+}
+
+
+// =====================================
 // 13. COURSE MANAGEMENT
 // =====================================
 
@@ -1810,6 +2031,10 @@ function renderCourses() {
                         ${escapeHTML(course.name)}
 
                     </h6>
+
+                    <span class="badge bg-info-subtle text-info mb-2">
+                        ${escapeHTML(categories.find(item => item.id === course.categoryId)?.name || "Uncategorized")}
+                    </span>
 
 
                     <p class="admin-course-description">
@@ -2041,7 +2266,7 @@ function openCourseModal() {
 
 
     document.getElementById("courseModalTitle").textContent = "Add New Course";
-
+    renderCategoryOptions();
 
     courseModal.show();
 
@@ -2098,6 +2323,7 @@ document.getElementById("courseForm").addEventListener("submit", async function(
     const course = {
 
         name: document.getElementById("courseName").value.trim(),
+        categoryId: document.getElementById("courseCategory").value,
 
         fee: Number(document.getElementById("courseFee").value),
 
@@ -2109,6 +2335,11 @@ document.getElementById("courseForm").addEventListener("submit", async function(
 
     };
 
+
+    if (!course.categoryId) {
+        alert("Please select a category for this course.");
+        return;
+    }
 
     // PREVENT DUPLICATE COURSE
 
@@ -2224,6 +2455,7 @@ function editCourse(index) {
     document.getElementById("editCourseIndex").value = index;
 
 
+    renderCategoryOptions(course.categoryId || "");
     document.getElementById("courseName").value = course.name;
 
     document.getElementById("courseFee").value = course.fee;
@@ -2324,104 +2556,73 @@ function deleteCourse(index) {
 // =====================================
 
 function renderEnrollments() {
-
     const rows = document.getElementById("enrollmentRows");
-
-    if (!rows) {
-        console.error("Enrollment table not found!");
-        return;
-    }
-
+    if (!rows) return;
     rows.innerHTML = "";
 
     if (enrollments.length === 0) {
-
-        rows.innerHTML = `
-            <tr>
-                <td colspan="6" class="text-center text-secondary py-4">
-                    No enrollment requests found.
-                </td>
-            </tr>
-        `;
-
+        rows.innerHTML = `<tr><td colspan="6" class="text-center text-secondary py-4">No enrollment requests found.</td></tr>`;
+    } else {
+        enrollments.forEach((item, index) => {
+            const badge = getStatusClass(item.status || "Pending");
+            rows.innerHTML += `
+                <tr>
+                    <td class="fw-semibold">${escapeHTML(item.student || item.name || "-")}</td>
+                    <td>${escapeHTML(item.phone || "-")}</td>
+                    <td>${escapeHTML(item.course || "-")}</td>
+                    <td class="text-nowrap">${escapeHTML(item.date || "-")}</td>
+                    <td><span class="status ${badge}">${escapeHTML(item.status || "Pending")}</span></td>
+                    <td class="text-nowrap">
+                        ${item.status === "Pending" ? `
+                            <button class="btn btn-sm btn-success me-1" type="button" onclick="updateEnrollment(${index}, 'Approved')"><i class="fa-solid fa-check me-1"></i>Approve</button>
+                            <button class="btn btn-sm btn-outline-danger me-1" type="button" onclick="updateEnrollment(${index}, 'Rejected')"><i class="fa-solid fa-xmark me-1"></i>Reject</button>
+                        ` : ""}
+                        <button class="btn btn-sm btn-danger" type="button" onclick="deleteEnrollment(${index})"><i class="fa-solid fa-trash me-1"></i>Delete</button>
+                    </td>
+                </tr>`;
+        });
     }
+    const pending = enrollments.filter(item => item.status === "Pending").length;
+    const pendingEl = document.getElementById("pendingCount");
+    if (pendingEl) pendingEl.textContent = pending;
+}
 
-    enrollments.forEach((item, index) => {
+function deleteEnrollment(index) {
+    if (!enrollments[index]) return;
+    if (!confirm("Delete this enrollment request?")) return;
+    enrollments.splice(index, 1);
+    saveData();
+    renderAll();
+}
 
-        const badge = getStatusClass(item.status);
-
+// CONTACT MESSAGE MANAGEMENT
+function renderContactMessages() {
+    const rows = document.getElementById("contactRows");
+    if (!rows) return;
+    rows.innerHTML = "";
+    if (!contactMessages.length) {
+        rows.innerHTML = `<tr><td colspan="5" class="text-center text-secondary py-4">No contact messages found.</td></tr>`;
+        return;
+    }
+    contactMessages.forEach((message, index) => {
+        const fullName = [message.name, message.lastName].filter(Boolean).join(" ") || "-";
         rows.innerHTML += `
             <tr>
-
-                <!-- STUDENT ID -->
-                <td class="fw-semibold">
-                    ${escapeHTML(item.studentId || "-")}
-                </td>
-
-                <!-- STUDENT NAME -->
-                <td>
-                    ${escapeHTML(item.student || "-")}
-                </td>
-
-                <!-- COURSE -->
-                <td>
-                    ${escapeHTML(item.course || "-")}
-                </td>
-
-                <!-- DATE -->
-                <td class="text-nowrap">
-                    ${escapeHTML(item.date || "-")}
-                </td>
-
-                <!-- STATUS -->
-                <td>
-                    <span class="status ${badge}">
-                        ${escapeHTML(item.status)}
-                    </span>
-                </td>
-
-                <!-- ACTIONS -->
-                <td class="text-nowrap">
-
-                    ${
-                        item.status === "Pending"
-                        ? `
-                            <button
-                                class="btn btn-sm btn-success me-1"
-                                type="button"
-                                onclick="updateEnrollment(${index}, 'Approved')">
-                                <i class="fa-solid fa-check me-1"></i>
-                                Approve
-                            </button>
-
-                            <button
-                                class="btn btn-sm btn-outline-danger"
-                                type="button"
-                                onclick="updateEnrollment(${index}, 'Rejected')">
-                                <i class="fa-solid fa-xmark me-1"></i>
-                                Reject
-                            </button>
-                        `
-                        : `
-                            <span class="text-secondary">Processed</span>
-                        `
-                    }
-                        
-
-                </td>
-
-            </tr>
-        `;
-
+                <td class="fw-semibold">${escapeHTML(fullName)}</td>
+                <td>${escapeHTML(message.email || "-")}</td>
+                <td style="min-width:220px; white-space:pre-wrap">${escapeHTML(message.message || "-")}</td>
+                <td class="text-nowrap">${escapeHTML(message.date || "-")}</td>
+                <td><button class="btn btn-sm btn-danger" type="button" onclick="deleteContactMessage(${index})"><i class="fa-solid fa-trash me-1"></i>Delete</button></td>
+            </tr>`;
     });
+}
 
-    // UPDATE PENDING COUNT
-    const pending = enrollments.filter(item =>
-        item.status === "Pending"
-    ).length;
-
-    document.getElementById("pendingCount").textContent = pending;
-
+function deleteContactMessage(index) {
+    if (!contactMessages[index]) return;
+    if (!confirm("Delete this contact message?")) return;
+    contactMessages.splice(index, 1);
+    saveData();
+    renderContactMessages();
 }
 
 
@@ -3068,7 +3269,11 @@ function renderAll() {
 
     renderCourses();
 
+    renderCategories();
+
     renderEnrollments();
+
+    renderContactMessages();
 
     renderReviews();
 
@@ -3081,6 +3286,7 @@ function renderAll() {
 renderAll();
 
 renderCourseOptions();
+renderCategoryOptions();
 
 </script>
 

@@ -14,7 +14,9 @@
   --glow-color: rgba(0, 174, 239, 0.4);
   --glow-strong: rgba(0, 174, 239, 0.7);
 }
-
+html {
+    scroll-behavior: smooth;
+}
 /* --- 2. BASE STYLES --- */
 body {
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;

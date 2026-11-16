@@ -1,62 +1,235 @@
-/* Yellow Background Styling */
 
-:root {
-  --primary-color: #00aeef;
-  --primary-hover: #0093ca;
-  --dark-color: #0f172a;
-  --text-main: #1e293b;
-  --text-muted: #64748b;
-  --bg-light: #f8fafc;
-  --glow-color: rgba(0, 174, 239, 0.4);
-  --glow-strong: rgba(0, 174, 239, 0.7);
-}
 
-.custom-yellow-bg {
-    background-color:var(--bg-light) !important; /* သို့မဟုတ် #f3b022 စသည်ဖြင့် ပုံထဲကအရောင်အတိုင်း ချိန်နိုင်ပါသည် */
-}
+        /*  MICRO-T COLOR THEME*/
 
-/* Input Fields Styling */
-.custom-input-group {
-    background-color: #ffffff;
-    border-radius: 50rem !important;
-    overflow: hidden;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
-}
+        :root {
+            --primary: #101D3A;
+            --secondary: #00AEEF;
+            --accent: #FFC928;
+            --light: #F4F8FB;
+            --white: #FFFFFF;
+            --text: #263449;
+            --muted: #718096;
+        }
 
-.custom-input-group .form-control:focus {
-    box-shadow: none;
-}
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--light);
+            color: var(--text);
+        }
 
-/* Checkbox Styling */
-.form-check-input {
-    border-radius: 50%; /* Radio style checkbox ဖြစ်အောင် ပြောင်းထားသည် */
-    cursor: pointer;
-}
+        /*  LOGIN SECTION*/
 
-.form-check-input:checked {
-    background-color: #212529;
-    border-color: #212529;
-}
+        .login-container {
+            min-height: 100vh;
+            background-color: var(--light);
+        }
 
-/* Dark Login Button Hover */
-.btn-login {
-    background-color: #0b1335;
-    border: none;
-    transition: all 0.3s ease;
-}
+        /*LOGIN CARD*/
 
-.btn-login:hover {
-    background-color: #172459;
-}
+        .login-card {
+            max-width: 1044px;
+            min-height: 506px;
+            border: none;
+            border-radius: 18px;
+            box-shadow: 0 20px 50px rgba(16, 29, 58, 0.13);
+        }
 
-/* Social Icons Styling */
-.social-icon {
-    width: 32px;
-    height: 32px;
-    text-decoration: none;
-    transition: transform 0.2s ease;
-}
+        /*  LEFT IMAGE */
 
-.social-icon:hover {
-    transform: translateY(-2px);
-}
+        .login-image {
+            min-height: 506px;
+            background-color: var(--primary);
+        }
+
+        .login-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* RIGHT LOGIN SECTION */
+
+        .login-form-section {
+            background-color: #F8FAFC;
+            padding: 45px 55px;
+        }
+
+        .login-title {
+            color: var(--primary);
+            font-size: 27px;
+            font-weight: 700;
+        }
+
+        .title-line {
+            width: 38px;
+            height: 4px;
+            background-color: var(--accent);
+            border-radius: 10px;
+            margin: 10px auto 0;
+        }
+
+        /*  INPUT FIELDS*/
+
+        .login-input {
+            height: 47px;
+            border: 1px solid transparent;
+            border-radius: 50px !important;
+            background-color: var(--white);
+            color: var(--text);
+            padding-left: 50px;
+            box-shadow: 0 3px 8px rgba(16, 29, 58, 0.06);
+            transition: 0.3s ease;
+        }
+
+        .login-input::placeholder {
+            color: var(--muted);
+        }
+
+        .login-input:focus {
+            border-color: var(--secondary);
+            background-color: var(--white);
+            box-shadow: 0 0 0 3px rgba(0, 174, 239, 0.10);
+        }
+
+        .input-icon {
+            position: absolute;
+            top: 50%;
+            left: 20px;
+            transform: translateY(-50%);
+            color: var(--secondary);
+            z-index: 5;
+            pointer-events: none;
+        }
+
+        .password-toggle {
+            position: absolute;
+            top: 50%;
+            right: 20px;
+            transform: translateY(-50%);
+            border: none;
+            background: transparent;
+            color: var(--muted);
+            z-index: 5;
+        }
+
+        .password-toggle:hover {
+            color: var(--secondary);
+        }
+
+        /*  CHECKBOX */
+
+        .form-check-input {
+            cursor: pointer;
+        }
+
+        .form-check-input:checked {
+            background-color: var(--secondary);
+            border-color: var(--secondary);
+        }
+
+        .form-check-input:focus {
+            border-color: var(--secondary);
+            box-shadow: 0 0 0 3px rgba(0, 174, 239, 0.12);
+        }
+
+        /*  FORGOT PASSWORD */
+
+        .forgot-link {
+            color: var(--primary);
+            text-decoration: none;
+            transition: 0.3s;
+        }
+
+        .forgot-link:hover {
+            color: var(--secondary);
+        }
+
+        /* LOGIN BUTTON*/
+
+        .btn-login {
+            height: 47px;
+            background-color: var(--primary);
+            color: var(--white);
+            border: 1px solid var(--primary);
+            border-radius: 50px;
+            font-weight: 600;
+            transition: 0.3s ease;
+        }
+
+        .btn-login:hover {
+            background-color: var(--secondary);
+            border-color: var(--secondary);
+            color: var(--white);
+            transform: translateY(-2px);
+        }
+
+        /*SOCIAL LOGIN*/
+
+        .social-icon {
+            width: 38px;
+            height: 38px;
+            background-color: var(--white);
+            color: var(--secondary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            box-shadow: 0 3px 8px rgba(16, 29, 58, 0.08);
+            transition: 0.3s ease;
+        }
+
+        .social-icon:hover {
+            background-color: var(--secondary);
+            color: var(--white);
+            transform: translateY(-3px);
+        }
+
+        /*  CLOSE BUTTON */
+
+        .close-btn {
+            position: absolute;
+            top: 20px;
+            right: 25px;
+            color: var(--primary);
+            font-size: 25px;
+            text-decoration: none;
+            transition: 0.3s;
+        }
+
+        .close-btn:hover {
+            color: var(--secondary);
+        }
+
+        /*RESPONSIVE DESIGN */
+
+        @media (max-width: 991px) {
+
+            .login-card {
+                max-width: 480px;
+                min-height: auto;
+            }
+
+            .login-form-section {
+                padding: 50px 35px;
+            }
+
+        }
+
+        @media (max-width: 576px) {
+
+            .login-container {
+                padding: 20px 12px;
+            }
+
+            .login-form-section {
+                padding: 45px 25px 35px;
+            }
+
+            .login-title {
+                font-size: 24px;
+            }
+
+        }
+

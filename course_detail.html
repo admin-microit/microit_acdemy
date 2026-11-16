@@ -1,0 +1,755 @@
+<!DOCTYPE html>
+<html lang="my">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Micro-IT Academy | Course Details</title>
+
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/test.css">
+
+    <style>
+        
+    </style>
+</head>
+
+<body>
+
+    <!-- NAVIGATION BAR -->
+    <nav class="navbar navbar-expand-lg sticky-top bg-white py-2 shadow-sm">
+        <div class="container">
+
+            <a class="navbar-brand d-flex align-items-center gap-2" href="index.html">
+                <img src="image/microit-logo.png" alt="Micro-IT Logo" height="42">
+
+                <div>
+                    <div class="brand-title">Micro-IT <span>Academy</span></div>
+                    <div class="brand-subtitle">TECH EDUCATION CENTER</div>
+                </div>
+            </a>
+
+            <button class="navbar-toggler border-0 shadow-none" type="button"
+                data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <i class="fa-solid fa-bars fs-4"></i>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarNav">
+
+                <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-3 my-2 my-lg-0">
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Home</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="about.html">About Us</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link active" href="course.html">Courses</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="contact.html">Contact</a>
+                    </li>
+
+                </ul>
+
+                <div class="d-flex align-items-center gap-2 mt-2 mt-lg-0 ms-lg-3">
+
+                    <a href="login.html" class="btn btn-signin px-3 rounded-pill fw-semibold">
+                        Sign In
+                    </a>
+
+                    <a href="index.html#enroll" class="btn btn-enroll px-4 rounded-pill fw-semibold">
+                        Enroll Now
+                    </a>
+
+                </div>
+
+            </div>
+        </div>
+    </nav>
+
+
+    <!-- HERO BANNER -->
+    <section class="hero-banner text-white">
+        <div class="container py-5">
+
+            <div class="row">
+                <div class="col-12 col-md-9 col-lg-7">
+
+                    <span class="hero-label px-3 py-2 rounded-pill fw-semibold mb-3">
+                        <i class="fa-solid fa-bolt me-2"></i>
+                        INDUSTRY-READY SKILLS
+                    </span>
+
+                    <h1 class="fw-bold display-5 mt-3 mb-3" id="courseName">
+                        Course Details
+                    </h1>
+
+                    <p class="text-white-50 mb-3" id="courseDescription"
+                        style="line-height: 1.8;">
+                        Explore our professional training programs.
+                    </p>
+
+                    <span class="course-status" id="courseStatus">
+                        Registration Open
+                    </span>
+
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+
+    <!-- COURSE DETAILS -->
+    <section class="detail-section">
+        <div class="container">
+
+            <div class="row g-4">
+
+                <!-- LEFT CONTENT -->
+                <div class="col-lg-8">
+
+                    <!-- COURSE OVERVIEW -->
+                    <div class="detail-card">
+                        <h3 class="detail-heading">Course Overview</h3>
+                        <p class="detail-text mb-0" id="courseOverview"></p>
+                    </div>
+
+                    <!-- WHAT YOU WILL LEARN -->
+                    <div class="detail-card">
+                        <h3 class="detail-heading">What You Will Learn</h3>
+                        <ul class="learning-list" id="learningList"></ul>
+                    </div>
+
+                    <!-- COURSE CURRICULUM -->
+                    <div class="detail-card">
+                        <h3 class="detail-heading">Course Curriculum</h3>
+                        <div class="accordion" id="curriculumList"></div>
+                    </div>
+
+                    <!-- INSTRUCTOR -->
+                    <div class="detail-card">
+                        <h3 class="detail-heading">About the Instructor</h3>
+
+                        <div class="instructor-box">
+
+                            <div class="instructor-avatar">
+                                <i class="fa-solid fa-user-tie"></i>
+                            </div>
+
+                            <div>
+                                <h5 class="fw-bold mb-1" id="instructorName">
+                                    To Be Announced
+                                </h5>
+
+                                <p class="text-secondary small mb-0" id="instructorDescription">
+                                    Instructor information will be announced soon.
+                                </p>
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+
+
+                <!-- RIGHT COURSE INFORMATION -->
+                <div class="col-lg-4">
+
+                    <div class="info-card">
+
+                        <img src="image/A+.jpg"
+                            class="course-image"
+                            id="courseImage"
+                            alt="Course Image">
+
+                        <h4 class="info-title">Course Information</h4>
+
+                        <div class="info-row">
+                            <i class="fa-regular fa-clock"></i>
+                            <div>
+                                <small>Duration</small>
+                                <strong id="courseDuration">To Be Announced</strong>
+                            </div>
+                        </div>
+
+                        <div class="info-row">
+                            <i class="fa-regular fa-calendar-days"></i>
+                            <div>
+                                <small>Class Days</small>
+                                <strong id="classDays">To Be Announced</strong>
+                            </div>
+                        </div>
+
+                        <div class="info-row">
+                            <i class="fa-regular fa-clock"></i>
+                            <div>
+                                <small>Class Time</small>
+                                <strong id="classTime">To Be Announced</strong>
+                            </div>
+                        </div>
+
+                        <div class="info-row">
+                            <i class="fa-solid fa-user"></i>
+                            <div>
+                                <small>Instructor</small>
+                                <strong id="instructorShort">To Be Announced</strong>
+                            </div>
+                        </div>
+
+                        <div class="info-row">
+                            <i class="fa-regular fa-calendar-check"></i>
+                            <div>
+                                <small>Starting Date</small>
+                                <strong id="startingDate">To Be Announced</strong>
+                            </div>
+                        </div>
+
+                        <div class="course-fee">
+                            <small class="text-secondary">Course Fee</small>
+                            <h4 class="fw-bold mt-1" id="courseFee">Contact Us</h4>
+                        </div>
+
+                        <a href="index.html#enroll"
+                            class="btn-enroll-detail"
+                            id="enrollButton">
+                            Enroll Now
+                            <i class="fa-solid fa-arrow-right ms-1"></i>
+                        </a>
+
+                        <a href="contact.html" class="btn-contact-detail">
+                            <i class="fa-regular fa-envelope me-2"></i>
+                            Contact Us
+                        </a>
+
+                        <div class="bg-light rounded-3 p-3 text-center mt-3">
+                            <strong class="small">Have Questions?</strong>
+                            <p class="text-secondary small mb-0 mt-1">
+                                Contact our team for more information.
+                            </p>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+
+    <!-- FOOTER -->
+    <footer class="text-secondary pt-5 pb-3 border-top border-secondary">
+        <div class="container">
+
+            <div class="row g-4 mb-5">
+
+                <!-- BRAND & ABOUT -->
+                <div class="col-12 col-md-6 col-lg-3">
+
+                    <div class="d-flex align-items-center mb-3">
+                        <i class="fa-solid fa-graduation-cap text-info fs-3 me-2"></i>
+                        <span class="fs-5 fw-bold text-white">Micro-IT Academy</span>
+                    </div>
+
+                    <p class="small text-secondary mb-4" style="line-height: 1.8;">
+                        Empowering the next generation of IT professionals in Myanmar.
+                        We provide practical, hands-on training in Networking,
+                        Mobile App Development, and System Administration.
+                    </p>
+
+                    <div class="d-flex gap-2">
+
+                        <a href="#" class="social-btn" aria-label="Facebook">
+                            <i class="fa-brands fa-facebook-f"></i>
+                        </a>
+
+                        <a href="#" class="social-btn" aria-label="Telegram">
+                            <i class="fa-brands fa-telegram"></i>
+                        </a>
+
+                        <a href="#" class="social-btn" aria-label="LinkedIn">
+                            <i class="fa-brands fa-linkedin-in"></i>
+                        </a>
+
+                        <a href="#" class="social-btn" aria-label="YouTube">
+                            <i class="fa-brands fa-youtube"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+
+                <!-- QUICK LINKS -->
+                <div class="col-6 col-md-6 col-lg-2 ms-lg-auto">
+
+                    <h5 class="footer-heading">Quick Links</h5>
+
+                    <ul class="list-unstyled mb-0">
+                        <li><a href="index.html" class="footer-link">Home</a></li>
+                        <li><a href="course.html" class="footer-link">All Courses</a></li>
+                        <li><a href="about.html" class="footer-link">About Us</a></li>
+                        <li><a href="#" class="footer-link">News & Articles</a></li>
+                        <li><a href="#" class="footer-link">FAQ</a></li>
+                        <li><a href="contact.html" class="footer-link">Contact Us</a></li>
+                    </ul>
+
+                </div>
+
+
+                <!-- POPULAR CATEGORIES -->
+                <div class="col-6 col-md-6 col-lg-3">
+
+                    <h5 class="footer-heading">Popular Categories</h5>
+
+                    <ul class="list-unstyled mb-0">
+
+                        <li>
+                            <a href="course.html" class="footer-link">
+                                <i class="fa-solid fa-network-wired me-2"></i>
+                                Network & Infrastructure
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="course.html" class="footer-link">
+                                <i class="fa-solid fa-code me-2"></i>
+                                Web & App Development
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="course.html" class="footer-link">
+                                <i class="fa-solid fa-shield-halved me-2"></i>
+                                Cyber Security
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="course.html" class="footer-link">
+                                <i class="fa-solid fa-microchip me-2"></i>
+                                Hardware & System (A+)
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="course.html" class="footer-link">
+                                <i class="fa-solid fa-chart-line me-2"></i>
+                                Business IT Solutions
+                            </a>
+                        </li>
+
+                    </ul>
+
+                </div>
+
+
+                <!-- CONTACT INFO -->
+                <div class="col-12 col-md-6 col-lg-3">
+
+                    <h5 class="footer-heading">Contact Info</h5>
+
+                    <div class="contact-item">
+                        <i class="fa-solid fa-location-dot"></i>
+                        <span>No.129 36th St, Yangon, Myanmar</span>
+                    </div>
+
+                    <div class="contact-item">
+                        <i class="fa-solid fa-phone"></i>
+                        <span>+95 9 123 456 789 / +95 9 987 654 321</span>
+                    </div>
+
+                    <div class="contact-item">
+                        <i class="fa-solid fa-envelope"></i>
+                        <span>info@microitacademy.com</span>
+                    </div>
+
+                    <div class="contact-item">
+                        <i class="fa-solid fa-clock"></i>
+                        <span>Mon - Sat: 9:00 AM - 5:00 PM</span>
+                    </div>
+
+                </div>
+
+            </div>
+
+            <hr class="border-secondary opacity-25 my-4">
+
+            <!-- COPYRIGHT -->
+            <div class="d-flex flex-column flex-md-row align-items-center justify-content-between gap-3 text-center text-md-start">
+
+                <p class="small mb-0 text-secondary">
+                    &copy; 2026 Micro-IT Academy. All Rights Reserved.
+                </p>
+
+                <div class="d-flex flex-wrap justify-content-center gap-3">
+                    <a href="#" class="legal-link">Privacy Policy</a>
+                    <span class="text-secondary small">•</span>
+                    <a href="#" class="legal-link">Terms of Service</a>
+                    <span class="text-secondary small">•</span>
+                    <a href="#" class="legal-link">Cookie Policy</a>
+                </div>
+
+            </div>
+
+        </div>
+    </footer>
+
+
+    <!-- BOOTSTRAP JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+
+   <script> 
+// COURSE DETAILS DATA
+const courses = {
+
+    "microsoft-365": {
+        name: "Microsoft 365 & Copilot AI",
+        description: "Develop essential workplace skills using Microsoft 365 and AI-powered tools.",
+        status: "Registration Open",
+        image: "image/microsoft365.png",
+        overview: "Learn Microsoft 365 applications and explore how Copilot AI can improve productivity in modern workplaces.",
+        duration: "3 Months",
+        days: "To Be Announced",
+        time: "To Be Announced",
+        instructor: "To Be Announced",
+        startingDate: "To Be Announced",
+        fee: "50,000 Ks",
+        learn: [
+            "Master Word, Excel & PowerPoint for real wrokplace tasks.",
+            "Work smarter with Outlook,Teams & OneDrive.",
+            "Microsoft 365 security & productivity essentials.",
+            "Discover Copilot AI for Writing, research & analysis.",
+            "Hands-on AI-powered office projects."
+        ],
+        curriculum: [
+            { title: "Module 1: Microsoft Word", detail: "Document creation, formatting, tables and reports." },
+            { title: "Module 2: Microsoft Excel", detail: "Spreadsheets, formulas and data organization." },
+            { title: "Module 3: Microsoft PowerPoint", detail: "Presentation design and slide management." },
+            { title: "Module 4: Microsoft 365", detail: "Outlook, cloud collaboration and productivity." },
+            { title: "Module 5: Copilot AI", detail: "Introduction to AI tools and productivity." }
+        ]
+    },
+
+    "a-plus": {
+        name: "A+ Practical Course",
+        description: "Build practical computer hardware, maintenance and troubleshooting skills.",
+        status: "Registration Open",
+        image: "image/A+-practical.jpg",
+        overview: "This practical course introduces computer hardware, operating systems, installation, maintenance and troubleshooting.",
+        duration: "3 Months",
+        days: "To Be Announced",
+        time: "To Be Announced",
+        instructor: "To Be Announced",
+        startingDate: "To Be Announced",
+        fee: "80,000 Ks",
+        learn: [
+            "Build & understand PC hardware from the ground up.",
+            "CPU, RAM, Motherboard ,Storage & Power Supply.",
+            "PC assembly ,upgrade & preventive maintenance.",
+            "Windows installation, Drivers & BIOs/UEFI.",
+            "Troubleshoot hardware & software problems.",
+            "Printer setup & essential IT support skills",
+            "Real-world Helpdesk & Technician practices"
+        ],
+        curriculum: [
+            { title: "Module 1: Computer Fundamentals", detail: "Computer systems and hardware components." },
+            { title: "Module 2: Hardware Installation", detail: "CPU, RAM, motherboard and storage installation." },
+            { title: "Module 3: Operating Systems", detail: "Windows installation and configuration." },
+            { title: "Module 4: Maintenance", detail: "Computer maintenance and preventive care." },
+            { title: "Module 5: Troubleshooting", detail: "Diagnosing and solving common computer problems." }
+        ]
+    },
+
+    "networking": {
+        name: "Networking Engineering Course",
+        description: "Build your foundation in computer networking and network administration.",
+        status: "Registration Open",
+        image: "image/category_networking.jpg",
+        overview: "Learn networking fundamentals, IP addressing, network devices, configuration and troubleshooting through practical learning.",
+        duration: "3 Months",
+        days: "To Be Announced",
+        time: "To Be Announced",
+        instructor: "To Be Announced",
+        startingDate: "To Be Announced",
+        fee: "100,000 Ks",
+        learn: [
+            "- OLearn Networking from Fundamentals to Practice.",
+            "OSI/TCP-IP & IPv4 addressing made practical.",
+            "Subnetting & IP planning skills.",
+            "Switches, Routers & VLAN configuration.",
+            "DHPCP, DNS & essential network services.",
+            "Network troubleshooting techniques.",
+            "Hands-on real-wrold network projects."
+        ],
+        curriculum: [
+            { title: "Module 1: Networking Fundamentals", detail: "Network types, topologies and communication." },
+            { title: "Module 2: IP Addressing", detail: "IPv4, subnetting and network configuration." },
+            { title: "Module 3: Network Devices", detail: "Routers, switches and access points." },
+            { title: "Module 4: Network Configuration", detail: "Basic device configuration and connectivity." },
+            { title: "Module 5: Troubleshooting", detail: "Network diagnostics and problem solving." }
+        ]
+    },
+
+    "software-engineering": {
+        name: "Software Engineering Course",
+        description: "Learn programming concepts and software development fundamentals.",
+        status: "Registration Open",
+        image: "image/Category_programming.jpg",
+        overview: "Understand software engineering principles, programming logic, databases and the software development lifecycle.",
+        duration: "3 Months",
+        days: "To Be Announced",
+        time: "To Be Announced",
+        instructor: "To Be Announced",
+        startingDate: "To Be Announced",
+        fee: "60,000 Ks",
+        learn: [
+            "Build strong Programming & Problem-solving skills.",
+            "Logic, Functions, OOP & Data Structures.",
+            "SQL, Databases & Version Control with Git.",
+            "Debugging, Testing & API fundamentals.",
+            "Build modern Web Web Applocations.",
+            "Learn through practical coding exercises.",
+            "Complete a Real-World Software Project."
+        ],
+        curriculum: [
+            { title: "Module 1: Programming Fundamentals", detail: "Variables, data types, conditions, loops and functions." },
+            { title: "Module 2: Object-Oriented Programming", detail: "Classes, objects and inheritance." },
+            { title: "Module 3: Database Fundamentals", detail: "Database concepts and SQL." },
+            { title: "Module 4: Software Development", detail: "Planning, designing and developing applications." }
+        ]
+    },
+
+    "php-laravel": {
+        name: "PHP & Laravel Advanced",
+        description: "Learn backend development using PHP, Laravel and MySQL.",
+        status: "Registration Open",
+        image: "image/Category_programming.jpg",
+        overview: "Develop dynamic web applications using PHP, Laravel and MySQL. Learn backend programming and database integration.",
+        duration: "3 Months",
+        days: "To Be Announced",
+        time: "To Be Announced",
+        instructor: "To Be Announced",
+        startingDate: "To Be Announced",
+        fee: "70,000 Ks",
+        learn: [
+            "Level up with Advanced PHP & OOP.",
+            "Laravel Routing, Controllers, Blade & MySQL.",
+            "Build secure & scalable web applications.",
+            "REST API development & Authentication.",
+            "CRUD & Database-driven applications",
+            "Security best practices",
+            "Build a Real-World Laravel Project."
+        ],
+        curriculum: [
+            { title: "Module 1: PHP Fundamentals", detail: "Variables, conditions, loops and functions." },
+            { title: "Module 2: Object-Oriented PHP", detail: "Classes, objects and inheritance." },
+            { title: "Module 3: MySQL Database", detail: "Database design and SQL queries." },
+            { title: "Module 4: Laravel Framework", detail: "Routing, controllers, models and views." },
+            { title: "Module 5: REST API", detail: "API requests, responses and integration." }
+        ]
+    },
+
+    "application-development": {
+        name: "Application Development Course",
+        description: "Explore application design, development and database integration.",
+        status: "Registration Open",
+        image: "image/Category_programming.jpg",
+        overview: "Learn the application development process, from requirements analysis and UI design to databases and application testing.",
+        duration: "3 Months",
+        days: "To Be Announced",
+        time: "To Be Announced",
+        instructor: "To Be Announced",
+        startingDate: "To Be Announced",
+        fee: "65,000 Ks",
+        learn: [
+            "Turn ideas into real working applications",
+            "Requirements Analysis & Project Planning",
+            "UI/UX & Application Architecture",
+            "Database Design & API Integration.",
+            "Application Development Best Practices",
+            "Testing, Debugging & Deployment basics",
+            "Build your own Practical Application Project."
+
+        ],
+        curriculum: [
+            { title: "Module 1: Requirements Analysis", detail: "Understanding users and application requirements." },
+            { title: "Module 2: UI/UX Design", detail: "User interface and user experience fundamentals." },
+            { title: "Module 3: Database Design", detail: "Database structure and relationships." },
+            { title: "Module 4: Application Development", detail: "Application structure and functionality." },
+            { title: "Module 5: Testing", detail: "Testing, debugging and application improvement." }
+        ]
+    },
+
+    "python": {
+        name: "Basic Python Programming",
+        description: "Start your programming journey with Python fundamentals.",
+        status: "Registration Open",
+        image: "image/Category_programming.jpg",
+        overview: "This course introduces Python programming from the basics. Students will learn programming logic and build simple applications through practical exercises.",
+        duration: "3 Months",
+        days: "To Be Announced",
+        time: "To Be Announced",
+        instructor: "To Be Announced",
+        startingDate: "To Be Announced",
+        fee: "65,000 Ks",
+        learn: [
+            "Understand Python syntax and fundamentals.",
+            "Work with variables and data types.",
+            "Use conditions and loops.",
+            "Understand functions and data structures.",
+            "Build simple Python programs."
+        ],
+        curriculum: [
+            { title: "Module 1: Introduction to Python", detail: "Python installation, syntax and basic concepts." },
+            { title: "Module 2: Variables and Data Types", detail: "Variables, strings, numbers and operators." },
+            { title: "Module 3: Conditions and Loops", detail: "If statements, for loops and while loops." },
+            { title: "Module 4: Functions", detail: "Creating and using reusable functions." },
+            { title: "Module 5: Practical Projects", detail: "Developing simple Python applications." }
+        ]
+    }
+
+};
+
+
+// GET COURSE ID FROM URL
+const params = new URLSearchParams(window.location.search);
+const selectedCourse = (params.get("course") || "").trim().toLowerCase();
+const course = courses[selectedCourse];
+
+
+// ELEMENTS
+const courseName = document.getElementById("courseName");
+const courseDescription = document.getElementById("courseDescription");
+const courseStatus = document.getElementById("courseStatus");
+
+
+// DISPLAY COURSE
+if (!course) {
+
+    courseName.textContent = "Course Not Found";
+    courseDescription.textContent = "Please select a valid course.";
+    courseStatus.textContent = "Not Available";
+    courseStatus.classList.add("closed");
+
+    document.querySelector(".detail-section").innerHTML = `
+        <div class="container">
+            <div class="detail-card text-center py-5">
+                <i class="fa-solid fa-book-open fs-1 text-secondary mb-3"></i>
+                <h4 class="fw-bold">Course Not Found</h4>
+                <p class="text-secondary">The selected course does not exist.</p>
+                <a href="course.html" class="btn btn-primary rounded-pill px-4">
+                    <i class="fa-solid fa-arrow-left me-2"></i>
+                    Back to Courses
+                </a>
+            </div>
+        </div>
+    `;
+
+} else {
+
+    // HERO
+    courseName.textContent = course.name;
+    courseDescription.textContent = course.description;
+    courseStatus.textContent = course.status;
+
+    if (course.status === "Coming Soon") {
+        courseStatus.classList.add("upcoming");
+    }
+
+    if (course.status === "Closed") {
+        courseStatus.classList.add("closed");
+    }
+
+    // OVERVIEW
+    document.getElementById("courseOverview").textContent = course.overview;
+
+    // COURSE INFORMATION
+    document.getElementById("courseImage").src = course.image;
+    document.getElementById("courseImage").alt = course.name;
+    document.getElementById("courseDuration").textContent = course.duration;
+    document.getElementById("classDays").textContent = course.days;
+    document.getElementById("classTime").textContent = course.time;
+    document.getElementById("instructorShort").textContent = course.instructor;
+    document.getElementById("instructorName").textContent = course.instructor;
+    document.getElementById("startingDate").textContent = course.startingDate;
+    document.getElementById("courseFee").textContent = course.fee;
+    document.getElementById("instructorDescription").textContent =
+        "Professional course instructor information will be announced soon.";
+
+    // LEARNING OUTCOMES
+    const learningList = document.getElementById("learningList");
+
+    learningList.innerHTML = course.learn.map(item => `
+        <li>
+            <i class="fa-solid fa-circle-check"></i>
+            <span>${item}</span>
+        </li>
+    `).join("");
+
+    // CURRICULUM
+    const curriculumList = document.getElementById("curriculumList");
+
+    curriculumList.innerHTML = course.curriculum.map((module, index) => {
+        const moduleId = `module${index}`;
+
+        return `
+            <div class="curriculum-item">
+                <button type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#${moduleId}"
+                    aria-expanded="false"
+                    aria-controls="${moduleId}">
+
+                    <i class="fa-solid fa-book-open"></i>
+                    ${module.title}
+                    <i class="fa-solid fa-chevron-down float-end mt-1"></i>
+                </button>
+
+                <div id="${moduleId}"
+                    class="collapse"
+                    data-bs-parent="#curriculumList">
+
+                    <div class="curriculum-content">
+                        ${module.detail}
+                    </div>
+                </div>
+            </div>
+        `;
+    }).join("");
+
+    // ENROLL BUTTON
+    const enrollButton = document.getElementById("enrollButton");
+
+    enrollButton.href = "course.html#contact";
+
+    if (course.status === "Coming Soon" || course.status === "Closed") {
+        enrollButton.textContent = "Contact Us for Updates";
+        enrollButton.href = "contact.html";
+    }
+
+}
+</script>
+
+</body>
+</html>
