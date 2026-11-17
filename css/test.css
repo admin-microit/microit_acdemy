@@ -940,3 +940,44 @@ footer {
     box-shadow: none !important;
     outline: none !important;
 }
+
+/* =========================================
+   20. MOBILE NAVBAR & HERO SPACING FIX
+========================================= */
+
+/* Navbar */
+nav.navbar.sticky-top {
+    position: sticky !important;
+    top: 0 !important;
+    z-index: 1055 !important;
+    background: #ffffff !important;
+    width: 100%;
+}
+
+/* Mobile adjustments */
+@media (max-width: 767.98px) {
+
+    /* Navbar stays above page content */
+    nav.navbar.sticky-top {
+        position: sticky !important;
+        top: 0 !important;
+        z-index: 1055 !important;
+    }
+
+    /* Add space below hero carousel */
+    .hero-carousel {
+        margin-bottom: 25px !important;
+    }
+
+    /* Internship section spacing */
+    .hero-carousel + .container,
+    .hero-carousel + section {
+        margin-top: 25px !important;
+    }
+
+    /* Internship card */
+    .container.pb-5 {
+        padding-top: 20px !important;
+        padding-bottom: 35px !important;
+    }
+}
