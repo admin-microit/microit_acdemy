@@ -597,3 +597,20 @@ footer a {
 .icon-shape {
   background-color: var(--primary-color, #00aeef) !important;
 }
+
+
+
+/* Logout dropdown theme */
+.dropdown-item.text-danger {
+    color: #101d3a !important;
+    border-radius: 6px;
+    transition: 0.2s ease;
+}
+
+.dropdown-item.text-danger:hover,
+.dropdown-item.text-danger:focus,
+.dropdown-item.text-danger:active {
+    background-color: #e8f8fd !important;
+    color: #00aeef !important;
+    box-shadow: none !important;
+}

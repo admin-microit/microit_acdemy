@@ -51,9 +51,20 @@
                 </ul>
 
                 <div class="d-flex align-items-center gap-2 mt-2 mt-lg-0 ms-lg-3">
-                    <a href="login.html" class="btn btn-signin px-3 rounded-pill fw-semibold">Sign In</a>
-                    <a href="#enroll" class="btn btn-enroll px-4 rounded-pill fw-semibold">Enroll Now</a>
-                </div>
+
+    <div id="authArea">
+        <a href="login.html"
+            class="btn btn-signin px-3 rounded-pill fw-semibold">
+            Sign In
+        </a>
+    </div>
+
+    <a href="#enroll"
+        class="btn btn-enroll px-4 rounded-pill fw-semibold">
+        Enroll Now
+    </a>
+
+</div>
             </div>
         </div>
     </nav>
@@ -1720,6 +1731,55 @@
 
         </div>
     </footer>
+
+    <script>
+
+function updateLoginButton() {
+    const authArea = document.getElementById("authArea");
+    const loggedInUser = localStorage.getItem("loggedInUser");
+
+    if (!authArea) return;
+
+    if (loggedInUser) {
+        authArea.innerHTML = `
+            <div class="dropdown">
+                <button class="btn border-0 bg-transparent"
+                    type="button"
+                    data-bs-toggle="dropdown"
+                    aria-expanded="false">
+                    <i class="fa-solid fa-circle-user fs-3"></i>
+                </button>
+
+                <ul class="dropdown-menu dropdown-menu-end shadow-sm">
+                    <li>
+                        <button class="dropdown-item text-danger"
+                            onclick="logoutUser()">
+                            <i class="fa-solid fa-right-from-bracket me-2"></i>
+                            Logout
+                        </button>
+                    </li>
+                </ul>
+            </div>
+        `;
+    } else {
+        authArea.innerHTML = `
+            <a href="login.html"
+                class="btn btn-signin px-3 rounded-pill fw-semibold">
+                Sign In
+            </a>
+        `;
+    }
+}
+
+function logoutUser() {
+    localStorage.removeItem("loggedInUser");
+    updateLoginButton();
+}
+
+updateLoginButton();
+
+
+</script>
 
 
     <!-- Bootstrap 5 JS -->

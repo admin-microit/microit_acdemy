@@ -73,6 +73,13 @@
 
     </nav>
 
+    <div class="sidebar-footer mt-auto pt-3">
+        <button class="side-link w-100 border-0 bg-transparent text-start" type="button" onclick="logoutAdmin()">
+            <i class="fa-solid fa-right-from-bracket"></i>
+            Log Out
+        </button>
+    </div>
+
 </aside>
 
 
@@ -2551,6 +2558,13 @@ function deleteCourse(index) {
 }
 
 
+// LOG OUT
+function logoutAdmin() {
+    if (!confirm("Are you sure you want to log out?")) return;
+    sessionStorage.removeItem("adminLoggedIn");
+    window.location.href = "login.html";
+}
+
 // =====================================
 // 20. ENROLLMENT MANAGEMENT
 // =====================================
@@ -2577,7 +2591,7 @@ function renderEnrollments() {
                             <button class="btn btn-sm btn-success me-1" type="button" onclick="updateEnrollment(${index}, 'Approved')"><i class="fa-solid fa-check me-1"></i>Approve</button>
                             <button class="btn btn-sm btn-outline-danger me-1" type="button" onclick="updateEnrollment(${index}, 'Rejected')"><i class="fa-solid fa-xmark me-1"></i>Reject</button>
                         ` : ""}
-                        <button class="btn btn-sm btn-danger" type="button" onclick="deleteEnrollment(${index})"><i class="fa-solid fa-trash me-1"></i>Delete</button>
+                        <button class="btn btn-sm btn-outline-danger" type="button" onclick="deleteEnrollment(${index})" title="Delete enrollment" aria-label="Delete enrollment"><i class="fa-solid fa-trash"></i></button>
                     </td>
                 </tr>`;
         });

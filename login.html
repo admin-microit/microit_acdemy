@@ -27,17 +27,11 @@
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/login.css">
 
-
-   
-
 </head>
 
 <body>
 
-    <!-- ==============================
-         LOGIN SECTION
-    ============================== -->
-
+    <!-- LOGIN SECTION -->
     <section class="login-container d-flex align-items-center justify-content-center py-4">
 
         <div class="container">
@@ -54,7 +48,6 @@
 
                     </div>
 
-
                     <!-- RIGHT LOGIN FORM -->
                     <div class="col-lg-6 login-form-section position-relative d-flex flex-column justify-content-center">
 
@@ -68,7 +61,6 @@
 
                         </a>
 
-
                         <!-- LOGIN HEADING -->
                         <div class="text-center mb-4">
 
@@ -80,9 +72,8 @@
 
                         </div>
 
-
                         <!-- LOGIN FORM -->
-                        <form action="#" method="POST">
+                        <form id="loginForm">
 
                             <!-- USERNAME / EMAIL -->
                             <div class="position-relative mb-3">
@@ -97,7 +88,6 @@
                                     required>
 
                             </div>
-
 
                             <!-- PASSWORD -->
                             <div class="position-relative mb-3">
@@ -122,7 +112,6 @@
                                 </button>
 
                             </div>
-
 
                             <!-- REMEMBER ME & FORGOT PASSWORD -->
                             <div class="d-flex align-items-center justify-content-between mb-4 small">
@@ -152,7 +141,6 @@
 
                             </div>
 
-
                             <!-- LOGIN BUTTON -->
                             <button type="submit"
                                 class="btn btn-login w-100">
@@ -163,14 +151,11 @@
 
                         </form>
 
-
                         <!-- SOCIAL LOGIN -->
                         <div class="text-center mt-4">
 
                             <p class="small text-dark mb-3">
-
                                 or sign up using
-
                             </p>
 
                             <div class="d-flex justify-content-center gap-2">
@@ -197,7 +182,6 @@
 
                         </div>
 
-
                     </div>
 
                 </div>
@@ -208,20 +192,17 @@
 
     </section>
 
-
-    <!-- ==============================
-         BOOTSTRAP JS
-    ============================== -->
-
+    <!-- BOOTSTRAP JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
-
-    <!-- SHOW / HIDE PASSWORD -->
+    <!-- LOGIN & PASSWORD SCRIPT -->
     <script>
 
         const passwordInput = document.getElementById("password");
         const togglePassword = document.getElementById("togglePassword");
+        const loginForm = document.getElementById("loginForm");
 
+        // SHOW / HIDE PASSWORD
         togglePassword.addEventListener("click", function () {
 
             const isPassword = passwordInput.type === "password";
@@ -236,6 +217,24 @@
                 "aria-label",
                 isPassword ? "Hide password" : "Show password"
             );
+
+        });
+
+        // LOGIN FORM SUBMIT
+        loginForm.addEventListener("submit", function (e) {
+
+            e.preventDefault();
+
+            const username = loginForm.username.value.trim();
+            const password = passwordInput.value;
+
+            if (username && password) {
+
+                localStorage.setItem("loggedInUser", username);
+
+                window.location.href = "index.html";
+
+            }
 
         });
 
