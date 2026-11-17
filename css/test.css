@@ -699,6 +699,7 @@ footer {
 }
 
 @media (max-width: 767px) {
+
     .hero-banner {
         min-height: 260px;
     }
@@ -736,6 +737,7 @@ footer {
 }
 
 @media (max-width: 575px) {
+
     .detail-card {
         padding: 20px;
     }
@@ -750,6 +752,7 @@ footer {
 }
 
 @media (max-width: 400px) {
+
     .course-img {
         height: 105px;
     }
@@ -759,3 +762,181 @@ footer {
     }
 }
 
+/* =========================================
+   18. MOBILE HERO CAROUSEL
+========================================= */
+
+@media (max-width: 767.98px) {
+
+    /* Carousel height */
+    .hero-carousel .carousel-item > .container {
+        max-width: 100%;
+        padding: 0 !important;
+    }
+
+    .hero-carousel .carousel-item .row {
+        position: relative;
+        min-height: 620px;
+        margin: 0;
+        overflow: hidden;
+        align-items: center !important;
+    }
+
+    /* Background Image */
+    .hero-carousel .carousel-item .row > div:last-child {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        padding: 0 !important;
+        z-index: 0;
+    }
+
+    /* Image containers */
+    .hero-carousel .carousel-item .row > div:last-child > .position-relative {
+        height: 100% !important;
+        margin: 0 !important;
+    }
+
+    .hero-carousel .carousel-item .row > div:last-child .overflow-hidden {
+        height: 100% !important;
+        border-radius: 0 !important;
+    }
+
+    .hero-carousel .carousel-item .row > div:last-child img {
+        width: 100%;
+        height: 100% !important;
+        object-fit: cover !important;
+    }
+
+    /* Dark overlay */
+    .hero-carousel .carousel-item .row > div:last-child::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(
+            90deg,
+            rgba(16, 29, 58, 0.94),
+            rgba(16, 29, 58, 0.72)
+        );
+        z-index: 1;
+    }
+
+    /* Hide floating image decorations */
+    .hero-carousel .carousel-item .row > div:last-child .position-absolute {
+        display: none !important;
+    }
+
+    /* Text content */
+    .hero-carousel .carousel-item .row > div:first-child {
+        position: relative;
+        z-index: 2;
+        width: 100%;
+        padding: 2rem 1.5rem !important;
+    }
+
+    .hero-carousel .carousel-item h1 {
+        color: #ffffff !important;
+        font-size: 1.85rem;
+        line-height: 1.35;
+        margin-bottom: 1rem !important;
+    }
+
+    .hero-carousel .carousel-item p {
+        color: rgba(255,255,255,0.85) !important;
+        font-size: 0.95rem;
+        line-height: 1.7;
+    }
+
+    .hero-carousel .carousel-item .text-secondary {
+        color: rgba(255,255,255,0.85) !important;
+    }
+
+    .hero-carousel .carousel-item .badge {
+        font-size: 0.7rem;
+    }
+
+    .hero-carousel .carousel-item .btn {
+        font-size: 0.85rem;
+        padding: 0.7rem 1rem !important;
+    }
+
+    /* Slide 3 illustration */
+    .hero-carousel .carousel-item:nth-child(3)
+    .row > div:last-child img {
+        object-fit: contain !important;
+        opacity: 0.45;
+    }
+
+    /* Carousel arrows */
+    .hero-carousel .carousel-control-prev,
+    .hero-carousel .carousel-control-next {
+        width: 10%;
+        z-index: 3;
+    }
+
+    .hero-carousel .carousel-indicators {
+        z-index: 4;
+    }
+}
+
+/* =========================================
+   19. USER DROPDOWN & LOGOUT
+========================================= */
+
+/* Hide email/header inside dropdown */
+.dropdown-menu .dropdown-header {
+    display: none !important;
+}
+
+/* Dropdown menu */
+.dropdown-menu {
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    box-shadow: 0 8px 25px rgba(16, 29, 58, .10);
+    padding: 8px;
+}
+
+/* Logout default style */
+.dropdown-menu .dropdown-item.text-danger {
+    color: var(--navy) !important;
+    background: transparent !important;
+    border-radius: 8px;
+    font-weight: 600;
+    transition: all .2s ease;
+}
+
+/* Logout hover */
+.dropdown-menu .dropdown-item.text-danger:hover {
+    color: var(--cyan) !important;
+    background: #eaf8fe !important;
+}
+
+/* Remove Bootstrap blue focus and active background */
+.dropdown-menu .dropdown-item.text-danger:focus,
+.dropdown-menu .dropdown-item.text-danger:active,
+.dropdown-menu .dropdown-item.text-danger:focus-visible {
+    color: var(--cyan) !important;
+    background: transparent !important;
+    box-shadow: none !important;
+    outline: none !important;
+}
+
+/* Dropdown item general focus */
+.dropdown-menu .dropdown-item:focus-visible {
+    outline: none;
+    box-shadow: none;
+}
+
+/* Logout icon */
+.dropdown-menu .dropdown-item.text-danger i {
+    color: inherit;
+}
+
+/* Remove unwanted blue button focus */
+.btn:focus,
+.btn:active:focus,
+.btn:focus-visible {
+    box-shadow: none !important;
+    outline: none !important;
+}
