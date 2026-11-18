@@ -1,0 +1,218 @@
+
+/* =========================================
+   1. ROOT VARIABLES
+========================================= */
+
+:root {
+    --navy: #101d3a;
+    --cyan: #00aeef;
+    --yellow: #ffc928;
+    --light-bg: #f4f8fb;
+    --text-muted: #738096;
+    --white: #ffffff;
+    --border-color: #e9eef3;
+}
+
+/* =========================================
+   2. GLOBAL STYLES
+========================================= */
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background: var(--white);
+    color: var(--navy);
+}
+
+a {
+    transition: all .2s ease;
+}
+
+/* =========================================
+   3. NAVIGATION BAR
+========================================= */
+
+.navbar {
+    border-bottom: 1px solid #edf0f4;
+}
+
+.brand-title {
+    font-size: 19px;
+    font-weight: 800;
+    color: var(--navy);
+}
+
+.brand-title span {
+    color: var(--cyan);
+}
+
+.brand-subtitle {
+    font-size: 10px;
+    color: #8792a4;
+    letter-spacing: 1px;
+}
+
+.navbar .nav-link {
+    color: var(--navy);
+    font-weight: 600;
+    font-size: 14px;
+    transition: .2s;
+}
+
+.navbar .nav-link:hover,
+.navbar .nav-link.active {
+    color: var(--cyan);
+}
+
+.btn-signin {
+    border: 1px solid #dce3eb;
+    color: var(--navy);
+}
+
+.btn-signin:hover {
+    background: var(--light-bg);
+    color: var(--navy);
+}
+
+.btn-enroll {
+    background: var(--cyan);
+    color: white;
+    border: 1px solid var(--cyan);
+}
+
+.btn-enroll:hover {
+    background: var(--navy);
+    border-color: var(--navy);
+    color: white;
+}
+
+/* =========================================
+   4. HERO BANNER
+========================================= */
+
+.hero-banner {
+    background:
+        linear-gradient(
+            90deg,
+            rgba(16, 29, 58, .80),
+            rgba(16, 29, 58, .65)
+        ),
+        url('../image/category_networking.jpg') center/cover no-repeat;
+
+    min-height: 300px;
+    display: flex;
+    align-items: center;
+}
+
+#about-us-section .side-nav-link {
+    color: #718096 !important;
+    font-size: 13px;
+    transition: color .2s ease;
+}
+
+#about-us-section .side-nav-link:hover,
+#about-us-section .side-nav-link.active {
+    color: var(--cyan) !important;
+}
+
+/* Existing academy/team image */
+#about-us-section .rounded-4.overflow-hidden {
+    border: 1px solid #e9eef4;
+    box-shadow: 0 8px 24px rgba(16, 29, 58, .08) !important;
+}
+
+#about-us-section .rounded-4.overflow-hidden img {
+    display: block;
+    width: 100%;
+}
+
+/* Quote and instructor photo */
+#about-us-section .quote-text {
+    color: var(--navy) !important;
+    line-height: 1.5 !important;
+    letter-spacing: -.4px;
+}
+
+#about-us-section .quote-container > i {
+    color: var(--cyan) !important;
+}
+
+#about-us-section .row.align-items-center > .col-md-6 > .bg-light {
+    border-color: #e9eef4 !important;
+    box-shadow: 0 6px 20px rgba(16, 29, 58, .06) !important;
+}
+
+/* Team photo cards */
+#about-us-section .team-img {
+    display: block;
+    width: 100%;
+    object-fit: cover;
+}
+
+#about-us-section .col-6 > .bg-light {
+    border-color: #e9eef4 !important;
+    box-shadow: 0 5px 16px rgba(16, 29, 58, .06) !important;
+}
+
+/* Statistics */
+#about-us-section .stat-number {
+    color: var(--navy) !important;
+    letter-spacing: -1px;
+}
+
+#about-us-section .stat-label {
+    color: var(--text-muted) !important;
+    font-weight: 600;
+    line-height: 1.5 !important;
+}
+
+/* Anchor navigation spacing */
+#team-section,
+#stats-section {
+    scroll-margin-top: 100px;
+}
+
+/* Responsive refinements — no layout redesign */
+@media (max-width: 991px) {
+    #about-us-section .side-nav {
+        border-left: 0;
+        border-bottom: 1px solid #e9eef4;
+        padding: 0 0 10px;
+    }
+}
+
+@media (max-width: 767px) {
+    body:has(#about-us-section) .hero-banner {
+        min-height: 280px;
+    }
+
+    #about-us-section {
+        padding-top: 35px;
+        padding-bottom: 40px;
+    }
+
+    #about-us-section .team-img {
+        height: 210px !important;
+    }
+}
+
+@media (max-width: 575px) {
+    #about-us-section .heading-xl {
+        font-size: 2.1rem !important;
+    }
+
+    #about-us-section .side-nav {
+        gap: 12px !important;
+    }
+
+    #about-us-section .team-img {
+        height: 175px !important;
+    }
+
+    #about-us-section .stat-number {
+        font-size: 1.8rem !important;
+    }
+}

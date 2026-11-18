@@ -1,0 +1,1179 @@
+
+/* =========================================
+   1. ROOT VARIABLES
+========================================= */
+
+:root {
+    --navy: #101d3a;
+    --cyan: #00aeef;
+    --yellow: #ffc928;
+    --light-bg: #f4f8fb;
+    --text-muted: #738096;
+    --white: #ffffff;
+    --border-color: #e9eef3;
+}
+
+/* =========================================
+   2. GLOBAL STYLES
+========================================= */
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background: var(--white);
+    color: var(--navy);
+}
+
+a {
+    transition: all .2s ease;
+}
+
+/* =========================================
+   3. NAVIGATION BAR
+========================================= */
+
+.navbar {
+    border-bottom: 1px solid #edf0f4;
+}
+
+.brand-title {
+    font-size: 19px;
+    font-weight: 800;
+    color: var(--navy);
+}
+
+.brand-title span {
+    color: var(--cyan);
+}
+
+.brand-subtitle {
+    font-size: 10px;
+    color: #8792a4;
+    letter-spacing: 1px;
+}
+
+.navbar .nav-link {
+    color: var(--navy);
+    font-weight: 600;
+    font-size: 14px;
+    transition: .2s;
+}
+
+.navbar .nav-link:hover,
+.navbar .nav-link.active {
+    color: var(--cyan);
+}
+
+.btn-signin {
+    border: 1px solid #dce3eb;
+    color: var(--navy);
+}
+
+.btn-signin:hover {
+    background: var(--light-bg);
+    color: var(--navy);
+}
+
+.btn-enroll {
+    background: var(--cyan);
+    color: white;
+    border: 1px solid var(--cyan);
+}
+
+.btn-enroll:hover {
+    background: var(--navy);
+    border-color: var(--navy);
+    color: white;
+}
+
+/* =========================================
+   4. HERO BANNER
+========================================= */
+
+.hero-banner {
+    background:
+        linear-gradient(
+            90deg,
+            rgba(16, 29, 58, .80),
+            rgba(16, 29, 58, .65)
+        ),
+        url('../image/category_networking.jpg') center/cover no-repeat;
+
+    min-height: 300px;
+    display: flex;
+    align-items: center;
+}
+
+.hero-banner h1 {
+    letter-spacing: -1px;
+}
+
+.hero-label {
+    display: inline-block;
+    background: rgba(0, 174, 239, .15);
+    color: #7cddff;
+    border: 1px solid rgba(0, 174, 239, .35);
+    font-size: 12px;
+    letter-spacing: 1px;
+}
+
+/* =========================================
+   5. COURSE CATALOG SECTION
+========================================= */
+
+.course-section {
+    background: var(--light-bg);
+}
+
+.section-label {
+    color: var(--cyan);
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+}
+
+.section-title {
+    color: var(--navy);
+    font-weight: 800;
+    letter-spacing: -.7px;
+}
+
+/* =========================================
+   6. CATEGORY FILTER
+========================================= */
+
+.category-wrapper {
+    background: white;
+    padding: 12px;
+    border: 1px solid #e8edf3;
+    border-radius: 16px;
+}
+
+.course-categories {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.category-btn {
+    background: #f5f7fa;
+    color: #66738a;
+    border: 1px solid transparent;
+    border-radius: 10px;
+    padding: 10px 15px;
+    font-size: 13px;
+    font-weight: 600;
+    white-space: nowrap;
+    transition: all .25s ease;
+}
+
+.category-btn i {
+    color: var(--cyan);
+    margin-right: 7px;
+    transition: .25s;
+}
+
+.category-btn:hover {
+    background: #eaf8fe;
+    color: var(--navy);
+    border-color: #ccefff;
+}
+
+.category-btn.active {
+    background: var(--navy);
+    color: white;
+    border-color: var(--navy);
+    box-shadow: 0 4px 12px rgba(16, 29, 58, .12);
+}
+
+.category-btn.active i {
+    color: var(--yellow);
+}
+
+/* =========================================
+   7. SEARCH BOX
+========================================= */
+
+.search-box {
+    border: 1px solid #e5eaf0;
+    border-radius: 12px;
+    background: white;
+    padding: 4px;
+}
+
+.search-box .form-control {
+    font-size: 13px;
+}
+
+.search-box .input-group-text {
+    color: #96a1b2;
+}
+
+.search-box .btn {
+    background: var(--cyan);
+    border-color: var(--cyan);
+    border-radius: 9px !important;
+    font-size: 13px;
+}
+
+.search-box .btn:hover {
+    background: var(--navy);
+    border-color: var(--navy);
+}
+
+/* =========================================
+   8. COURSE CARDS
+========================================= */
+
+.course-card {
+    background: white;
+    border: 1px solid var(--border-color);
+    border-radius: 15px;
+    overflow: hidden;
+    transition: transform .25s ease, box-shadow .25s ease;
+}
+
+.course-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 28px rgba(16, 29, 58, .09) !important;
+}
+
+.course-img {
+    width: 100%;
+    height: 155px;
+    object-fit: cover;
+    background: #eaf0f6;
+}
+
+.course-card .card-body {
+    padding: 16px;
+}
+
+.course-category {
+    display: inline-block;
+    color: #0097d1;
+    background: #eaf8fe;
+    font-size: 10px;
+    font-weight: 700;
+    padding: 5px 9px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+.course-card h5 {
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--navy);
+    min-height: 38px;
+}
+
+.course-info {
+    font-size: 12px;
+    color: var(--text-muted);
+}
+
+.course-info i {
+    color: var(--cyan);
+    width: 16px;
+}
+
+.badge-price {
+    color: var(--navy);
+    font-size: 14px;
+    font-weight: 800;
+}
+
+.btn-course-detail {
+    background: #fff8df;
+    color: #a87c00;
+    border: 1px solid #ffebad;
+    font-size: 12px;
+    font-weight: 700;
+    border-radius: 8px;
+}
+
+.btn-course-detail:hover {
+    background: var(--yellow);
+    color: var(--navy);
+}
+
+.btn-course-join {
+    background: var(--cyan);
+    color: white;
+    border: 1px solid var(--cyan);
+    font-size: 12px;
+    font-weight: 700;
+    border-radius: 8px;
+}
+
+.btn-course-join:hover {
+    background: var(--navy);
+    border-color: var(--navy);
+    color: white;
+}
+
+.empty-result {
+    display: none;
+    text-align: center;
+    padding: 50px 15px;
+    color: var(--text-muted);
+}
+
+/* =========================================
+   9. CONTACT & ENROLLMENT SECTION
+========================================= */
+
+.contact-bg-card {
+    background: linear-gradient(120deg, #101d3a, #172f59);
+    overflow: hidden;
+}
+
+.contact-icon-bg {
+    width: 42px;
+    height: 42px;
+    flex-shrink: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgba(0, 174, 239, .15);
+    color: var(--cyan);
+    border-radius: 10px;
+}
+
+.contact-form {
+    border-radius: 14px;
+}
+
+.contact-form .form-control,
+.contact-form .form-select {
+    font-size: 13px;
+    padding: 11px 12px;
+    border-color: #e5eaf0;
+}
+
+.contact-form .form-control:focus,
+.contact-form .form-select:focus {
+    border-color: var(--cyan);
+    box-shadow: 0 0 0 .2rem rgba(0, 174, 239, .12);
+}
+
+.btn-submit {
+    background: var(--cyan);
+    border-color: var(--cyan);
+    color: white;
+}
+
+.btn-submit:hover {
+    background: var(--navy);
+    border-color: var(--navy);
+    color: white;
+}
+
+/* =========================================
+   10. COURSE STATUS
+========================================= */
+
+.course-status {
+    display: inline-block;
+    background: #e3f9ed;
+    color: #198754;
+    padding: 8px 15px;
+    border-radius: 30px;
+    font-size: 13px;
+    font-weight: 700;
+}
+
+.course-status.upcoming {
+    background: #fff3cd;
+    color: #997000;
+}
+
+.course-status.closed {
+    background: #fce8e8;
+    color: #dc3545;
+}
+
+/* =========================================
+   11. COURSE DETAIL SECTION
+========================================= */
+
+.detail-section {
+    padding: 55px 0;
+    background: var(--light-bg);
+}
+
+.detail-card {
+    background: white;
+    border: 1px solid #edf0f5;
+    border-radius: 14px;
+    padding: 25px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 15px rgba(16, 29, 58, .04);
+}
+
+.detail-heading {
+    font-size: 21px;
+    font-weight: 800;
+    margin-bottom: 18px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.detail-heading::before {
+    content: "";
+    width: 5px;
+    height: 25px;
+    background: var(--cyan);
+    border-radius: 5px;
+}
+
+.detail-text {
+    color: var(--text-muted);
+    line-height: 1.8;
+    font-size: 14px;
+}
+
+/* =========================================
+   12. LEARNING LIST
+========================================= */
+
+.learning-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.learning-list li {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 14px;
+    font-size: 14px;
+    align-items: flex-start;
+}
+
+.learning-list i {
+    color: var(--cyan);
+    margin-top: 3px;
+}
+
+/* =========================================
+   13. CURRICULUM
+========================================= */
+
+.curriculum-item {
+    border: 1px solid #e5eaf1;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    overflow: hidden;
+}
+
+.curriculum-item button {
+    width: 100%;
+    background: #f5f8fc;
+    border: none;
+    padding: 14px 16px;
+    text-align: left;
+    color: var(--navy);
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.curriculum-item button:hover {
+    background: #eaf8fe;
+}
+
+.curriculum-item button i {
+    color: var(--cyan);
+    margin-right: 10px;
+}
+
+.curriculum-content {
+    padding: 15px 18px;
+    color: var(--text-muted);
+    font-size: 13px;
+    line-height: 1.8;
+    background: white;
+}
+
+/* =========================================
+   14. COURSE INFORMATION
+========================================= */
+
+.info-card {
+    background: white;
+    border: 1px solid #edf0f5;
+    border-radius: 14px;
+    padding: 24px;
+    position: sticky;
+    top: 90px;
+    box-shadow: 0 4px 15px rgba(16, 29, 58, .05);
+}
+
+.course-image {
+    height: 180px;
+    width: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+    background: #eaf8fe;
+    margin-bottom: 20px;
+}
+
+.info-title {
+    font-size: 19px;
+    font-weight: 800;
+    margin-bottom: 20px;
+}
+
+.info-row {
+    display: flex;
+    gap: 13px;
+    margin-bottom: 19px;
+    align-items: flex-start;
+}
+
+.info-row i {
+    color: var(--cyan);
+    font-size: 19px;
+    width: 22px;
+    margin-top: 3px;
+}
+
+.info-row small {
+    color: var(--text-muted);
+    display: block;
+    margin-bottom: 4px;
+}
+
+.info-row strong {
+    font-size: 14px;
+}
+
+.course-fee {
+    border-top: 1px solid #edf0f5;
+    padding-top: 18px;
+    margin-top: 15px;
+}
+
+.btn-enroll-detail {
+    display: block;
+    width: 100%;
+    background: var(--yellow);
+    color: var(--navy);
+    text-align: center;
+    padding: 13px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 700;
+    margin-top: 18px;
+    transition: .2s;
+}
+
+.btn-enroll-detail:hover {
+    background: #efb900;
+    color: var(--navy);
+}
+
+.btn-contact-detail {
+    display: block;
+    width: 100%;
+    border: 1px solid var(--cyan);
+    color: var(--cyan);
+    text-align: center;
+    padding: 12px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 600;
+    margin-top: 10px;
+}
+
+.btn-contact-detail:hover {
+    background: var(--cyan);
+    color: white;
+}
+
+/* =========================================
+   15. INSTRUCTOR
+========================================= */
+
+.instructor-box {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+}
+
+.instructor-avatar {
+    width: 75px;
+    height: 75px;
+    background: #eaf8fe;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--cyan);
+    font-size: 30px;
+    flex-shrink: 0;
+}
+
+/* =========================================
+   16. FOOTER
+========================================= */
+
+footer {
+    background: #101827 !important;
+}
+
+.footer-heading {
+    color: white;
+    font-size: 15px;
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+
+.footer-link {
+    display: inline-block;
+    color: #aab4c4;
+    text-decoration: none;
+    font-size: 13px;
+    margin-bottom: 12px;
+    transition: .2s;
+}
+
+.footer-link:hover {
+    color: var(--cyan);
+    padding-left: 3px;
+}
+
+.social-btn {
+    width: 35px;
+    height: 35px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #202e43;
+    color: white;
+    border-radius: 8px;
+    text-decoration: none;
+    transition: .2s;
+}
+
+.social-btn:hover {
+    background: var(--cyan);
+    color: white;
+}
+
+.contact-item {
+    display: flex;
+    gap: 12px;
+    color: #aab4c4;
+    font-size: 12px;
+    margin-bottom: 15px;
+}
+
+.contact-item i {
+    color: var(--cyan);
+    margin-top: 3px;
+}
+
+.legal-link {
+    color: #aab4c4;
+    font-size: 11px;
+    text-decoration: none;
+}
+
+.legal-link:hover {
+    color: var(--cyan);
+}
+
+/* =========================================
+   17. RESPONSIVE DESIGN
+========================================= */
+
+@media (max-width: 991px) {
+    .info-card {
+        position: static;
+    }
+}
+
+@media (max-width: 767px) {
+
+    .hero-banner {
+        min-height: 260px;
+    }
+
+    .hero-banner h1 {
+        font-size: 32px;
+    }
+
+    .category-wrapper {
+        padding: 10px;
+    }
+
+    .course-categories {
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        padding-bottom: 5px;
+    }
+
+    .category-btn {
+        padding: 9px 12px;
+        font-size: 12px;
+    }
+
+    .course-img {
+        height: 125px;
+    }
+
+    .course-card .card-body {
+        padding: 12px;
+    }
+
+    .course-card h5 {
+        font-size: 13px;
+    }
+}
+
+@media (max-width: 575px) {
+
+    .detail-card {
+        padding: 20px;
+    }
+
+    .detail-heading {
+        font-size: 18px;
+    }
+
+    .instructor-box {
+        align-items: flex-start;
+    }
+}
+
+@media (max-width: 400px) {
+
+    .course-img {
+        height: 105px;
+    }
+
+    .course-info {
+        font-size: 10px;
+    }
+}
+
+/* =========================================
+   18. MOBILE HERO CAROUSEL
+========================================= */
+
+@media (max-width: 767.98px) {
+
+    /* Carousel height */
+    .hero-carousel .carousel-item > .container {
+        max-width: 100%;
+        padding: 0 !important;
+    }
+
+    .hero-carousel .carousel-item .row {
+        position: relative;
+        min-height: 620px;
+        margin: 0;
+        overflow: hidden;
+        align-items: center !important;
+    }
+
+    /* Background Image */
+    .hero-carousel .carousel-item .row > div:last-child {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        padding: 0 !important;
+        z-index: 0;
+    }
+
+    /* Image containers */
+    .hero-carousel .carousel-item .row > div:last-child > .position-relative {
+        height: 100% !important;
+        margin: 0 !important;
+    }
+
+    .hero-carousel .carousel-item .row > div:last-child .overflow-hidden {
+        height: 100% !important;
+        border-radius: 0 !important;
+    }
+
+    .hero-carousel .carousel-item .row > div:last-child img {
+        width: 100%;
+        height: 100% !important;
+        object-fit: cover !important;
+    }
+
+    /* Dark overlay */
+    .hero-carousel .carousel-item .row > div:last-child::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(
+            90deg,
+            rgba(16, 29, 58, 0.94),
+            rgba(16, 29, 58, 0.72)
+        );
+        z-index: 1;
+    }
+
+    /* Hide floating image decorations */
+    .hero-carousel .carousel-item .row > div:last-child .position-absolute {
+        display: none !important;
+    }
+
+    /* Text content */
+    .hero-carousel .carousel-item .row > div:first-child {
+        position: relative;
+        z-index: 2;
+        width: 100%;
+        padding: 2rem 1.5rem !important;
+    }
+
+    .hero-carousel .carousel-item h1 {
+        color: #ffffff !important;
+        font-size: 1.85rem;
+        line-height: 1.35;
+        margin-bottom: 1rem !important;
+    }
+
+    .hero-carousel .carousel-item p {
+        color: rgba(255,255,255,0.85) !important;
+        font-size: 0.95rem;
+        line-height: 1.7;
+    }
+
+    .hero-carousel .carousel-item .text-secondary {
+        color: rgba(255,255,255,0.85) !important;
+    }
+
+    .hero-carousel .carousel-item .badge {
+        font-size: 0.7rem;
+    }
+
+    .hero-carousel .carousel-item .btn {
+        font-size: 0.85rem;
+        padding: 0.7rem 1rem !important;
+    }
+
+    /* Slide 3 illustration */
+    .hero-carousel .carousel-item:nth-child(3)
+    .row > div:last-child img {
+        object-fit: contain !important;
+        opacity: 0.45;
+    }
+
+    /* Carousel arrows */
+    .hero-carousel .carousel-control-prev,
+    .hero-carousel .carousel-control-next {
+        width: 10%;
+        z-index: 3;
+    }
+
+    .hero-carousel .carousel-indicators {
+        z-index: 4;
+    }
+}
+
+/* =========================================
+   19. USER DROPDOWN & LOGOUT
+========================================= */
+
+/* Hide email/header inside dropdown */
+.dropdown-menu .dropdown-header {
+    display: none !important;
+}
+
+/* Dropdown menu */
+.dropdown-menu {
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    box-shadow: 0 8px 25px rgba(16, 29, 58, .10);
+    padding: 8px;
+}
+
+/* Logout default style */
+.dropdown-menu .dropdown-item.text-danger {
+    color: var(--navy) !important;
+    background: transparent !important;
+    border-radius: 8px;
+    font-weight: 600;
+    transition: all .2s ease;
+}
+
+/* Logout hover */
+.dropdown-menu .dropdown-item.text-danger:hover {
+    color: var(--cyan) !important;
+    background: #eaf8fe !important;
+}
+
+/* Remove Bootstrap blue focus and active background */
+.dropdown-menu .dropdown-item.text-danger:focus,
+.dropdown-menu .dropdown-item.text-danger:active,
+.dropdown-menu .dropdown-item.text-danger:focus-visible {
+    color: var(--cyan) !important;
+    background: transparent !important;
+    box-shadow: none !important;
+    outline: none !important;
+}
+
+/* Dropdown item general focus */
+.dropdown-menu .dropdown-item:focus-visible {
+    outline: none;
+    box-shadow: none;
+}
+
+/* Logout icon */
+.dropdown-menu .dropdown-item.text-danger i {
+    color: inherit;
+}
+
+/* Remove unwanted blue button focus */
+.btn:focus,
+.btn:active:focus,
+.btn:focus-visible {
+    box-shadow: none !important;
+    outline: none !important;
+}
+
+/* =========================================
+   20. MOBILE NAVBAR & HERO SPACING FIX
+========================================= */
+
+/* Navbar */
+nav.navbar.sticky-top {
+    position: sticky !important;
+    top: 0 !important;
+    z-index: 1055 !important;
+    background: #ffffff !important;
+    width: 100%;
+}
+
+/* Mobile adjustments */
+@media (max-width: 767.98px) {
+
+    /* Navbar stays above page content */
+    nav.navbar.sticky-top {
+        position: sticky !important;
+        top: 0 !important;
+        z-index: 1055 !important;
+    }
+
+    /* Add space below hero carousel */
+    .hero-carousel {
+        margin-bottom: 25px !important;
+    }
+
+    /* Internship section spacing */
+    .hero-carousel + .container,
+    .hero-carousel + section {
+        margin-top: 25px !important;
+    }
+
+    /* Internship card */
+    .container.pb-5 {
+        padding-top: 20px !important;
+        padding-bottom: 35px !important;
+    }
+}
+/* Remove space between navbar and hero banner */
+nav.navbar {
+    position: sticky !important;
+    top: 0 !important;
+    margin-bottom: 0 !important;
+    padding-bottom: 0 !important;
+}
+
+#home {
+    margin-top: 0 !important;
+    padding-top: 0 !important;
+}
+
+.hero-carousel {
+    margin-top: 0 !important;
+    padding-top: 0 !important;
+}
+/* STICKY NAVBAR FIX */
+nav.navbar.sticky-top {
+    position: sticky !important;
+    top: 0 !important;
+    z-index: 1055 !important;
+    background-color: #ffffff !important;
+    margin-top: 0 !important;
+}
+/* =========================================
+   MOBILE NAV + HERO REFINEMENT (2026)
+   Compact spacing, better CTA contrast, cleaner hierarchy
+========================================= */
+@media (max-width: 767.98px) {
+    /* Keep navbar compact and remove excess vertical padding */
+    nav.navbar.sticky-top {
+        padding-top: .4rem !important;
+        padding-bottom: .4rem !important;
+    }
+
+    nav.navbar .navbar-brand img {
+        height: 36px !important;
+        width: auto;
+    }
+
+    nav.navbar .brand-title {
+        font-size: 1rem;
+        line-height: 1.15;
+    }
+
+    nav.navbar .brand-subtitle {
+        font-size: .62rem;
+        letter-spacing: .06em;
+    }
+
+    /* Collapsed menu should be compact, tidy, and not push the banner */
+    nav.navbar .navbar-collapse {
+        margin-top: .5rem !important;
+        padding: .65rem .85rem !important;
+        border-radius: .85rem;
+        background: #f8fafc;
+        box-shadow: 0 6px 16px rgba(16, 29, 58, .06);
+    }
+
+    nav.navbar .navbar-nav {
+        gap: 0 !important;
+        margin: 0 !important;
+    }
+
+    nav.navbar .navbar-nav .nav-link {
+        padding: .65rem .25rem;
+        font-size: .92rem;
+    }
+
+    nav.navbar #authArea .btn-signin,
+    nav.navbar .btn-enroll {
+        min-height: 42px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        font-size: .9rem;
+    }
+
+    nav.navbar .navbar-collapse > .d-flex {
+        margin-left: 0 !important;
+        margin-top: .65rem !important;
+        display: grid !important;
+        grid-template-columns: 1fr 1fr;
+        gap: .6rem !important;
+    }
+
+    /* Remove top whitespace between nav and hero */
+    #home,
+    #heroCarousel,
+    #heroCarousel .carousel-inner,
+    #heroCarousel .carousel-item {
+        margin-top: 0 !important;
+        padding-top: 0 !important;
+    }
+
+    .hero-carousel {
+        margin-bottom: 0 !important;
+    }
+
+    /* More balanced hero height and content placement on phones */
+    .hero-carousel .carousel-item .row {
+        min-height: 0 !important;
+        height: auto !important;
+        padding-top: 0 !important;
+        padding-bottom: 0 !important;
+        align-items: stretch !important;
+    }
+
+    .hero-carousel .carousel-item .row > div:first-child {
+        padding: 2rem 1.25rem 2.5rem !important;
+        align-self: center;
+    }
+
+    .hero-carousel .carousel-item h1 {
+        font-size: clamp(1.65rem, 7vw, 2rem) !important;
+        line-height: 1.22 !important;
+        margin-bottom: .85rem !important;
+    }
+
+    .hero-carousel .carousel-item p {
+        font-size: .9rem !important;
+        line-height: 1.55 !important;
+        margin-bottom: 1.15rem !important;
+    }
+
+    .hero-carousel .carousel-item .badge {
+        max-width: 100%;
+        white-space: normal;
+        line-height: 1.4;
+        margin-bottom: 1rem !important;
+    }
+
+    /* CTA buttons: high contrast and visually distinct */
+    .hero-carousel .carousel-item .btn-outline-dark {
+        background: #ffffff !important;
+        color: #10203d !important;
+        border: 2px solid #ffffff !important;
+        font-weight: 700 !important;
+        box-shadow: 0 4px 14px rgba(0, 0, 0, .18);
+    }
+
+    .hero-carousel .carousel-item .btn-info {
+        background: #00aeef !important;
+        color: #ffffff !important;
+        border: 2px solid #00aeef !important;
+        font-weight: 700 !important;
+        box-shadow: 0 4px 14px rgba(0, 174, 239, .28);
+    }
+
+    .hero-carousel .carousel-item .d-flex.flex-wrap.gap-3 {
+        gap: .65rem !important;
+        margin-bottom: 1.1rem !important;
+    }
+
+    .hero-carousel .carousel-item .btn {
+        min-height: 46px;
+        padding: .7rem 1rem !important;
+        border-radius: .75rem !important;
+    }
+
+    /* The hero image remains a background layer, without separate gaps */
+    .hero-carousel .carousel-item .row > div:last-child,
+    .hero-carousel .carousel-item .row > div:last-child > .position-relative,
+    .hero-carousel .carousel-item .row > div:last-child .overflow-hidden {
+        inset: 0;
+        height: 100% !important;
+    }
+
+}
+
+/* FINAL MOBILE GAP OVERRIDE: navbar should meet hero immediately */
+@media (max-width: 767.98px) {
+    body > nav.navbar + #home,
+    nav.navbar + section#home {
+        margin-top: 0 !important;
+        padding-top: 0 !important;
+    }
+    #home,
+    #home > #heroCarousel,
+    #heroCarousel,
+    #heroCarousel .carousel-inner,
+    #heroCarousel .carousel-item,
+    #heroCarousel .carousel-item > .container,
+    #heroCarousel .carousel-item > .container > .row {
+        margin-top: 0 !important;
+        padding-top: 0 !important;
+    }
+    #heroCarousel .carousel-item > .container {
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+    }
+    #heroCarousel .carousel-item > .container > .row > div:first-child {
+        padding-top: 1.5rem !important;
+    }
+}
