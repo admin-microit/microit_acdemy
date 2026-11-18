@@ -22,7 +22,6 @@ body {
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
   color: var(--text-main);
   background-color: var(--bg-light);
-  overflow-x: hidden;
 }
 
 /* --- 3. NAVBAR STYLES --- */

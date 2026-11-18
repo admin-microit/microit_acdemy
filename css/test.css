@@ -981,3 +981,199 @@ nav.navbar.sticky-top {
         padding-bottom: 35px !important;
     }
 }
+/* Remove space between navbar and hero banner */
+nav.navbar {
+    position: sticky !important;
+    top: 0 !important;
+    margin-bottom: 0 !important;
+    padding-bottom: 0 !important;
+}
+
+#home {
+    margin-top: 0 !important;
+    padding-top: 0 !important;
+}
+
+.hero-carousel {
+    margin-top: 0 !important;
+    padding-top: 0 !important;
+}
+/* STICKY NAVBAR FIX */
+nav.navbar.sticky-top {
+    position: sticky !important;
+    top: 0 !important;
+    z-index: 1055 !important;
+    background-color: #ffffff !important;
+    margin-top: 0 !important;
+}
+/* =========================================
+   MOBILE NAV + HERO REFINEMENT (2026)
+   Compact spacing, better CTA contrast, cleaner hierarchy
+========================================= */
+@media (max-width: 767.98px) {
+    /* Keep navbar compact and remove excess vertical padding */
+    nav.navbar.sticky-top {
+        padding-top: .4rem !important;
+        padding-bottom: .4rem !important;
+    }
+
+    nav.navbar .navbar-brand img {
+        height: 36px !important;
+        width: auto;
+    }
+
+    nav.navbar .brand-title {
+        font-size: 1rem;
+        line-height: 1.15;
+    }
+
+    nav.navbar .brand-subtitle {
+        font-size: .62rem;
+        letter-spacing: .06em;
+    }
+
+    /* Collapsed menu should be compact, tidy, and not push the banner */
+    nav.navbar .navbar-collapse {
+        margin-top: .5rem !important;
+        padding: .65rem .85rem !important;
+        border-radius: .85rem;
+        background: #f8fafc;
+        box-shadow: 0 6px 16px rgba(16, 29, 58, .06);
+    }
+
+    nav.navbar .navbar-nav {
+        gap: 0 !important;
+        margin: 0 !important;
+    }
+
+    nav.navbar .navbar-nav .nav-link {
+        padding: .65rem .25rem;
+        font-size: .92rem;
+    }
+
+    nav.navbar #authArea .btn-signin,
+    nav.navbar .btn-enroll {
+        min-height: 42px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        font-size: .9rem;
+    }
+
+    nav.navbar .navbar-collapse > .d-flex {
+        margin-left: 0 !important;
+        margin-top: .65rem !important;
+        display: grid !important;
+        grid-template-columns: 1fr 1fr;
+        gap: .6rem !important;
+    }
+
+    /* Remove top whitespace between nav and hero */
+    #home,
+    #heroCarousel,
+    #heroCarousel .carousel-inner,
+    #heroCarousel .carousel-item {
+        margin-top: 0 !important;
+        padding-top: 0 !important;
+    }
+
+    .hero-carousel {
+        margin-bottom: 0 !important;
+    }
+
+    /* More balanced hero height and content placement on phones */
+    .hero-carousel .carousel-item .row {
+        min-height: 0 !important;
+        height: auto !important;
+        padding-top: 0 !important;
+        padding-bottom: 0 !important;
+        align-items: stretch !important;
+    }
+
+    .hero-carousel .carousel-item .row > div:first-child {
+        padding: 2rem 1.25rem 2.5rem !important;
+        align-self: center;
+    }
+
+    .hero-carousel .carousel-item h1 {
+        font-size: clamp(1.65rem, 7vw, 2rem) !important;
+        line-height: 1.22 !important;
+        margin-bottom: .85rem !important;
+    }
+
+    .hero-carousel .carousel-item p {
+        font-size: .9rem !important;
+        line-height: 1.55 !important;
+        margin-bottom: 1.15rem !important;
+    }
+
+    .hero-carousel .carousel-item .badge {
+        max-width: 100%;
+        white-space: normal;
+        line-height: 1.4;
+        margin-bottom: 1rem !important;
+    }
+
+    /* CTA buttons: high contrast and visually distinct */
+    .hero-carousel .carousel-item .btn-outline-dark {
+        background: #ffffff !important;
+        color: #10203d !important;
+        border: 2px solid #ffffff !important;
+        font-weight: 700 !important;
+        box-shadow: 0 4px 14px rgba(0, 0, 0, .18);
+    }
+
+    .hero-carousel .carousel-item .btn-info {
+        background: #00aeef !important;
+        color: #ffffff !important;
+        border: 2px solid #00aeef !important;
+        font-weight: 700 !important;
+        box-shadow: 0 4px 14px rgba(0, 174, 239, .28);
+    }
+
+    .hero-carousel .carousel-item .d-flex.flex-wrap.gap-3 {
+        gap: .65rem !important;
+        margin-bottom: 1.1rem !important;
+    }
+
+    .hero-carousel .carousel-item .btn {
+        min-height: 46px;
+        padding: .7rem 1rem !important;
+        border-radius: .75rem !important;
+    }
+
+    /* The hero image remains a background layer, without separate gaps */
+    .hero-carousel .carousel-item .row > div:last-child,
+    .hero-carousel .carousel-item .row > div:last-child > .position-relative,
+    .hero-carousel .carousel-item .row > div:last-child .overflow-hidden {
+        inset: 0;
+        height: 100% !important;
+    }
+
+}
+
+/* FINAL MOBILE GAP OVERRIDE: navbar should meet hero immediately */
+@media (max-width: 767.98px) {
+    body > nav.navbar + #home,
+    nav.navbar + section#home {
+        margin-top: 0 !important;
+        padding-top: 0 !important;
+    }
+    #home,
+    #home > #heroCarousel,
+    #heroCarousel,
+    #heroCarousel .carousel-inner,
+    #heroCarousel .carousel-item,
+    #heroCarousel .carousel-item > .container,
+    #heroCarousel .carousel-item > .container > .row {
+        margin-top: 0 !important;
+        padding-top: 0 !important;
+    }
+    #heroCarousel .carousel-item > .container {
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+    }
+    #heroCarousel .carousel-item > .container > .row > div:first-child {
+        padding-top: 1.5rem !important;
+    }
+}
